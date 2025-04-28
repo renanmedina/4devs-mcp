@@ -11,14 +11,14 @@ type CpfService struct {
 	apiClient ApiClient[string]
 }
 
-func NewCpfService() CpfService {
+func NewCpfService(logEnabled bool) CpfService {
 	return CpfService{
 		observability.GetLogger(),
 		NewApiClient[string](
 			ApiConfig{
 				ApiUrl:     "https://www.4devs.com.br",
 				EncodeType: "form-data",
-				LogEnabled: true,
+				LogEnabled: logEnabled,
 			},
 		),
 	}

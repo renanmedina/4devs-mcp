@@ -24,7 +24,7 @@ func NewCPFGeneratorTool() *CPFGeneratorTool {
 			formatted := request.Params.Arguments["formatted"].(bool)
 			from_uf := request.Params.Arguments["state"].(string)
 
-			service := services.NewCpfService()
+			service := services.NewCpfService(true)
 			generated, err := service.Generate(formatted, from_uf)
 
 			if err != nil {
