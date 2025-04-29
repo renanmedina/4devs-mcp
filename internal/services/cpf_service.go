@@ -9,14 +9,9 @@ func NewCpfService(logEnabled bool) CpfService {
 }
 
 func (s CpfService) Generate(formatted bool, uf string) (*string, error) {
-	formatted_string := "N"
-	if formatted {
-		formatted_string = "S"
-	}
-
 	return s.client.Post("", map[string]interface{}{
 		"acao":       "gerar_cpf",
-		"pontuacao":  formatted_string,
+		"pontuacao":  formattedParam(formatted),
 		"cpf_estado": uf,
 	}, map[string]string{})
 }

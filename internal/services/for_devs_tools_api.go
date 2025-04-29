@@ -15,3 +15,11 @@ func NewForDevsToolsClient(logEnabled bool) ForDevsToolsApi {
 		),
 	}
 }
+
+func formattedParam(formatted bool) string {
+	if formatted {
+		return "S"
+	}
+
+	return "N"
+}
